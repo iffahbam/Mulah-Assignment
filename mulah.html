@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mulah Assignment</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Mulah Assignment</h2><br>
+
+<h3 style="text-align: center;">Table 1</h3>
+<table id="table1">
+      <th>Index #</th>
+      <th>Value</th>
+</table><br><br>
+
+<h3 style="text-align: center;">Table 2</h3>
+<table id="table2">
+      <th>Category</th>
+      <th>Value</th>
+</table><br><br>
+
+<script>
+    var table1Body = document.getElementById("table1");
+    var values = [41, 18, 21, 63, 2, 53, 5, 57, 60, 93, 28, 3, 90, 39, 80, 88, 49, 60, 26, 28];
+
+    // Generate rows in Table 1
+    for (var i = 1; i <= values.length; i++) {
+        var nextRow = document.createElement("tr");
+        var indexColumn = document.createElement("td");
+        var valueColumn = document.createElement("td");
+
+        indexColumn.textContent = "A" + i;
+        valueColumn.textContent = values[i - 1]; 
+
+        nextRow.appendChild(indexColumn);
+        nextRow.appendChild(valueColumn);
+
+        table1Body.appendChild(nextRow);
+    }
+
+    // Values for Table 2
+    var table2Values = [
+        values[4] + values[19],  // A5 + A20
+        values[14] / values[6],  // A15 / A7
+        values[12] * values[11] // A13 * A12
+    ];
+
+    // Display Table 2
+    var table2Body = document.getElementById("table2").querySelector('tbody');
+    
+    var categories = ["Alpha", "Beta", "Charlie"];
+
+    for (var k = 0; k < categories.length; k++) {
+        var nextRow = document.createElement("tr");
+        var categoryCell = document.createElement("td");
+        var valueCell = document.createElement("td");
+
+        categoryCell.textContent = categories[k];
+        valueCell.textContent = table2Values[k];
+
+        nextRow.appendChild(categoryCell);
+        nextRow.appendChild(valueCell);
+
+        table2Body.appendChild(nextRow);
+    }
+</script>
+
+</body>
+</html>
